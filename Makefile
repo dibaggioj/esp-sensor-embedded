@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := app-template
+PROJECT_NAME := temperature-humidity-monitor
 
 include $(IDF_PATH)/make/project.mk
 

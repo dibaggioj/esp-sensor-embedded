@@ -1,0 +1,3 @@
+
+COMPONENT_ADD_INCLUDEDIRS := libs/dht22/include
+COMPONENT_SRCDIRS := libs/dht22/src
