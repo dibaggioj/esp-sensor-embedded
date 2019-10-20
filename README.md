@@ -6,7 +6,7 @@ Built with [Espressif IoT Development Framework](https://github.com/espressif/es
 
 Please check [ESP-IDF docs](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) for getting started instructions.
 
-Using some utility code for C++ from [CPP Utils](https://github.com/nkolban/esp32-snippets).
+Using [CPP Utils](https://github.com/nkolban/esp32-snippets) and [DHT22](https://github.com/gosouth/DHT22-cpp).
 
 ## Make Setup
 1. Run `make menuconfig`
