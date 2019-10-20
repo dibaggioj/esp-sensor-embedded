@@ -5,3 +5,5 @@ sdkconfig.old
 .cproject
 .settings/
 
+diagrams/diagram.fzz
+diagrams/diagram.png
