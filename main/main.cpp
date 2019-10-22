@@ -42,11 +42,15 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
         xEventGroupSetBits(wifi_event_group, WIFI_CONNECTED_BIT);
         break;
     case SYSTEM_EVENT_STA_DISCONNECTED:
+    		ESP_LOGI(TAG, "Disconnected from WiFi access point\n\n");
         /* This is a workaround as ESP32 WiFi libs don't currently
            auto-reassociate. */
         esp_wifi_connect();
         xEventGroupClearBits(wifi_event_group, WIFI_CONNECTED_BIT);
         break;
+    case SYSTEM_EVENT_STA_CONNECTED:
+    		ESP_LOGI(TAG, "Successfully connected to WiFi access point\n\n");
+    		break;
     default:
         break;
     }
@@ -120,9 +124,9 @@ void app_main(void)
 	}
 	ESP_ERROR_CHECK(ret);
 
-	esp_log_level_set("*", ESP_LOG_INFO);
-
 	initialise_wifi();
+
+	esp_log_level_set("*", ESP_LOG_INFO);
 
 	xTaskCreate(&DHT_task, "DHT_task", 2048, NULL, 5, NULL);
 }
