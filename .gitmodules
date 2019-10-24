@@ -1,6 +1,0 @@
-[submodule "components/libs/protobuf-c"]
-	path = components/libs/protobuf-c
-	url = git@github.com:protobuf-c/protobuf-c.git
-[submodule "protobuf-c"]
-	path = protobuf-c
-	url = git@github.com:dibaggioj/protobuf-c.git
