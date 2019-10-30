@@ -42,14 +42,14 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
         xEventGroupSetBits(wifi_event_group, WIFI_CONNECTED_BIT);
         break;
     case SYSTEM_EVENT_STA_DISCONNECTED:
-    		ESP_LOGI(TAG, "Disconnected from WiFi access point\n\n");
+    		ESP_LOGI(APP_TAG, "Disconnected from WiFi access point\n\n");
         /* This is a workaround as ESP32 WiFi libs don't currently
            auto-reassociate. */
         esp_wifi_connect();
         xEventGroupClearBits(wifi_event_group, WIFI_CONNECTED_BIT);
         break;
     case SYSTEM_EVENT_STA_CONNECTED:
-    		ESP_LOGI(TAG, "Successfully connected to WiFi access point\n\n");
+    		ESP_LOGI(APP_TAG, "Successfully connected to WiFi access point\n\n");
     		break;
     default:
         break;
@@ -85,7 +85,7 @@ static void initialise_wifi(void)
     wifi_config_t wifi_config;
     wifi_config.sta = wifi_sta_config;
 
-    ESP_LOGI(TAG, "Setting WiFi configuration SSID %s...", wifi_config.sta.ssid);
+    ESP_LOGI(APP_TAG, "Setting WiFi configuration SSID %s...", wifi_config.sta.ssid);
     ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK( esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
     ESP_ERROR_CHECK( esp_wifi_start() );
@@ -95,16 +95,16 @@ void DHT_task(void *pvParameter)
 {
     DHT dht;
     dht.setDHTgpio(GPIO_NUM_4);
-    ESP_LOGI(TAG, "Starting DHT Task\n\n");
+    ESP_LOGI(APP_TAG, "Starting DHT Task\n\n");
 
     while (1)
     {
-        ESP_LOGI(TAG, "=== Reading DHT ===\n");
+        ESP_LOGI(APP_TAG, "=== Reading DHT ===\n");
         int ret = dht.readDHT();
 
         dht.errorHandler(ret);
         float temp_f = dht.getTemperature() * 1.8 + 32;
-        ESP_LOGI(TAG, "Hum: %.1f Tmp: %.1f\n", dht.getHumidity(), temp_f);
+        ESP_LOGI(APP_TAG, "Hum: %.1f Tmp: %.1f\n", dht.getHumidity(), temp_f);
 
         // -- wait at least 3 sec before reading again ------------
         // The interval of whole process must be beyond 2 seconds !!
@@ -126,7 +126,7 @@ void app_main(void)
 
 	initialise_wifi();
 
-	esp_log_level_set("*", ESP_LOG_INFO);
+	esp_log_level_set(DHT::TAG, ESP_LOG_INFO);
 
 	xTaskCreate(&DHT_task, "DHT_task", 2048, NULL, 5, NULL);
 }
