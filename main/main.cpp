@@ -13,7 +13,9 @@
 #include <lwip/sys.h>
 #include <DHT.hpp>
 #include <string>
+#include <JSON.h>
 
+#include "data.h"
 #include "projectconfig.h"
 #include "sdkconfig.h"
 
@@ -105,6 +107,28 @@ void DHT_task(void *pvParameter)
         dht.errorHandler(ret);
         float temp_f = dht.getTemperature() * 1.8 + 32;
         ESP_LOGI(APP_TAG, "Hum: %.1f Tmp: %.1f\n", dht.getHumidity(), temp_f);
+
+        temperature_reading temp = {
+        		"DHT22",
+			temp_f,
+			'F',
+			"living room"
+        };
+        humidity_reading hum = {
+        		"DHT22",
+			dht.getHumidity(),
+        		"living room"
+        };
+        data_point point = {
+        		"ESP32 Thing",
+			esp_log_timestamp(),
+			temp,
+			hum
+        };
+
+        JsonObject json = DataPoint::build_json(point);
+
+//        ESP_LOGI(APP_TAG, "JSON: %s", json.toStringUnformatted().c_str());
 
         // -- wait at least 3 sec before reading again ------------
         // The interval of whole process must be beyond 2 seconds !!

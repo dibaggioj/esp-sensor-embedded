@@ -9,6 +9,7 @@
 #define COMPONENTS_CPP_UTILS_JSON_H_
 #include <cJSON.h>
 #include <string>
+#include <esp_wifi_types.h>
 
 // Forward declarations
 class JsonObject;
@@ -77,6 +78,7 @@ public:
 	void        setBoolean(std::string name, bool value);
 	void        setDouble(std::string name, double value);
 	void        setInt(std::string name, int value);
+	void        setLong(std::string name, uint32_t value);
 	void        setObject(std::string name, JsonObject value);
 	void        setString(std::string name, std::string value);
 	std::string toString();

@@ -339,6 +339,16 @@ void JsonObject::setInt(std::string name, int value) {
 	cJSON_AddItemToObject(m_node, name.c_str(), cJSON_CreateNumber((double) value));
 } // setInt
 
+/**
+ * @brief Set the named long property.
+ * @param [in] name The name of the property to add.
+ * @param [in] value The long to add to the object.
+ * @return N/A.
+ */
+void JsonObject::setLong(std::string name, uint32_t value) {
+	cJSON_AddItemToObject(m_node, name.c_str(), cJSON_CreateNumber((double) value));
+} // setLong
+
 
 /**
  * @brief Set the named object property.
