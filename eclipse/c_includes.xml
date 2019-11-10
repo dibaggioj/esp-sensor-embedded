@@ -33,6 +33,9 @@
 <includepath>${IDF_PATH}/components/aws_iot/aws-iot-device-sdk-embedded-C/include</includepath>
 <includepath>${IDF_PATH}/components/fatfs/src</includepath>
 <includepath>${IDF_PATH}/components/wear_levelling/include</includepath>
+<includepath>${IDF_PATH}/components/nghttp/port/include</includepath>
+<includepath>${IDF_PATH}/components/tcpip_adapter/include</includepath> 
+<includepath>${IDF_PATH}/components/esp_http_client/include</includepath>
 
 </language>
 <language name="GNU C++">
@@ -72,6 +75,9 @@
 <includepath>${IDF_PATH}/components/aws_iot/aws-iot-device-sdk-embedded-C/include</includepath>
 <includepath>${IDF_PATH}/components/fatfs/src</includepath>
 <includepath>${IDF_PATH}/components/wear_levelling/include</includepath>
+<includepath>${IDF_PATH}/components/nghttp/port/include</includepath>
+<includepath>${IDF_PATH}/components/tcpip_adapter/include</includepath> 
+<includepath>${IDF_PATH}/components/esp_http_client/include</includepath>
 <includepath>${IDF_PATH}/components/console</includepath>
 <includepath>/Users/johndibaggio/esp/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/5.2.0</includepath>
 <includepath>/Users/johndibaggio/esp/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/5.2.0/include</includepath>
@@ -116,6 +122,9 @@
 <includepath>${IDF_PATH}/components/aws_iot/aws-iot-device-sdk-embedded-C/include</includepath>
 <includepath>${IDF_PATH}/components/fatfs/src</includepath>
 <includepath>${IDF_PATH}/components/wear_levelling/include</includepath>
+<includepath>${IDF_PATH}/components/nghttp/port/include</includepath>
+<includepath>${IDF_PATH}/components/tcpip_adapter/include</includepath> 
+<includepath>${IDF_PATH}/components/esp_http_client/include</includepath>
 <includepath>/Users/johndibaggio/esp/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/5.2.0</includepath>
 <includepath>/Users/johndibaggio/esp/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/5.2.0/include</includepath>
 <includepath workspace_path="true">/temperature_humidity_monitor/build/include</includepath>
