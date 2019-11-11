@@ -5,7 +5,7 @@
  *      Author: johndibaggio
  */
 
-#include "data.h"
+#include "data.hpp"
 
 JsonObject DataPoint::build_json(data_point d) {
 	JsonObject t_json = JSON::createObject();
